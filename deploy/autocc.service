@@ -1,0 +1,19 @@
+# systemd 示例单元：把 /opt/automatic-cloudcampus 与 User 改成自己的部署路径
+[Unit]
+Description=Automatic CloudCampus Web Service
+After=network.target
+
+[Service]
+Type=simple
+User=autocc
+Group=autocc
+WorkingDirectory=/opt/automatic-cloudcampus/backend
+EnvironmentFile=/opt/automatic-cloudcampus/.env
+ExecStart=/opt/automatic-cloudcampus/.venv/bin/python -m uvicorn app.main:app --host 127.0.0.1 --port 8000
+Restart=always
+RestartSec=5
+StandardOutput=append:/opt/automatic-cloudcampus/logs/uvicorn.log
+StandardError=append:/opt/automatic-cloudcampus/logs/uvicorn_error.log
+
+[Install]
+WantedBy=multi-user.target

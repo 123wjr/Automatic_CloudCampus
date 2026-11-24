@@ -1,0 +1,15 @@
+services:
+  app:
+    build: .
+    image: automatic-cloudcampus:latest
+    ports:
+      - "8000:8000"
+    # .env 不存在时 compose 仍然可以启动（支付/管理后台等功能会保持关闭）
+    env_file:
+      - path: .env
+        required: false
+    volumes:
+      # 抓包样本与 SQLite 数据库放在宿主机，重建镜像不丢数据
+      - ./Raw:/app/Raw
+      - ./backend/data:/app/backend/data
+    restart: unless-stopped
