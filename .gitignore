@@ -1,0 +1,61 @@
+# ---------- Python ----------
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+
+# ---------- Node / 前端 ----------
+node_modules/
+frontend/dist/
+frontend/.vite/
+npm-debug.log*
+yarn-error.log*
+
+# ---------- 敏感配置（绝不提交）----------
+.env
+.env.local
+.env.*.local
+!.env.example
+user_information.ini
+accounts.txt
+userdata.txt
+legacy/autocc-cli/user_information.ini
+
+# ---------- 运行时数据（绝不提交）----------
+backend/data/*.db
+backend/data/*.db-*
+backend/data/*.sqlite3
+Raw/*.npy
+Raw/*.json
+legacy/cc-replayer/queue.json
+legacy/cc-replayer/failed.json
+legacy/cc-replayer/accounts.json
+logs/
+*.log
+
+# ---------- 体积过大的二进制（自行下载）----------
+driver/msedgedriver
+driver/msedgedriver.*
+legacy/autocc-cli/msedgedriver
+*.apk
+
+# ---------- Android 构建产物 ----------
+tools/auto-dark-mode/AutoDark/build/
+tools/auto-dark-mode/AutoDark/.gradle/
+tools/auto-dark-mode/AutoDark/.kotlin/
+tools/auto-dark-mode/AutoDark/local.properties
+tools/auto-dark-mode/tools/
+
+# ---------- IDE / OS ----------
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+desktop.ini
+TEMP/
